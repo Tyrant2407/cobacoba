@@ -5,7 +5,7 @@ const path = require('path');
 const server = http.createServer((req, res) => {
     let filePath = '.' + req.url;
     if (filePath === './') {
-        filePath = './index.html';
+        filePath = './src/templates/index.html';
     }
 
     const extname = path.extname(filePath);
