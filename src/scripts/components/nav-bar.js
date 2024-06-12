@@ -1,11 +1,25 @@
+/* eslint-disable no-underscore-dangle */
 class NavBar extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({
+      mode: 'open'
+    });
   }
 
   connectedCallback() {
     this.render();
+  }
+
+  _clearContent() {
+    this.shadowRoot.innerHTML = '';
+  }
+
+  _loadStyle() {
+    const link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', '../src/style/css/components/main.css');
+    this.shadowRoot.appendChild(link);
   }
 
   render() {
@@ -24,13 +38,13 @@ class NavBar extends HTMLElement {
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <search-bar></search-bar>
+                <a href="#" data-page="searchpage" class="nav-link"><search-bar></search-bar></a>
               </li>
               <li class="nav-item active">
                 <a href="#" data-page="home" class="nav-link">Home</a>
               </li>
               <li class="nav-item">
-                <a href="#" data-page="searchpage" class="nav-link">Categories</a>
+                <a href="#" data-page="" class="nav-link">Categories</a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">Rewards</a>
@@ -47,26 +61,21 @@ class NavBar extends HTMLElement {
       </nav>
     `;
 
-    this.shadowRoot.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', this._navigate.bind(this));
+    this.shadowRoot.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', this._navigateNav.bind(this));
     });
   }
 
-  _loadStyle() {
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', '../src/style/css/components/main.css');
-    this.shadowRoot.appendChild(link);
-  }
-
-  _clearContent() {
-    this.shadowRoot.innerHTML = '';
-  }
-
-  _navigate(event) {
+  _navigateNav(event) {
     event.preventDefault();
-    const page = event.target.getAttribute('data-page');
-    window.dispatchEvent(new CustomEvent('navigate', { detail: { page } }));
+    const page = event.currentTarget.getAttribute('data-page');
+    if (page) {
+      window.dispatchEvent(new CustomEvent('navigateNav', {
+        detail: {
+          page
+        }
+      }));
+    }
   }
 }
 
