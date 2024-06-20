@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const content = document.getElementById('content');
 
     if (page === 'gadgets') {
-      content.innerHTML = '<search-page></-page>';
+      content.innerHTML = '<search-page></search-page>';
     }
   });
 });

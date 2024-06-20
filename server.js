@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -32,13 +33,19 @@ const server = http.createServer((req, res) => {
         res.end(`Server Error: ${error.code}`);
       }
     } else {
-      res.writeHead(200, { 'Content-Type': contentType });
+      res.writeHead(200, {
+        'Content-Type': contentType
+      });
       res.end(content, 'utf-8');
     }
   });
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+server.listen(PORT, async () => {
   console.log(`Server running at http://localhost:${PORT}/`);
+
+  // Dynamically import the 'open' module
+  const open = await import('open');
+  open.default(`http://localhost:${PORT}/`);
 });

@@ -1,34 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Store - Your Best Marketplace" />
-  <meta name="author" content="" />
-  <title>Store - Your Best Marketplace</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-</head>
-<body>
-  <skip-link></skip-link>
-  <header>
-    <nav-bar></nav-bar>
-  </header>
-  <div id="content">
-    <home-page></home-page>
-  </div>
-  <footer>
-    <footer-bar></footer-bar>
-  </footer>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="description" content="Store - Your Best Marketplace" />
+    <meta name="author" content="" />
+    <title>Store - Your Best Marketplace</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="../src/style/css/components/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <skip-link></skip-link>
+    <header>
+      <nav-bar></nav-bar>
+    </header>
+    <div id="content" class="page-content page-home">
+      <home-page></home-page>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script type="module" src="../app.js"></script>
+      <section class="store-new-products">
+        <div class="container">
+          <div class="row">
+            <div class="col-12" data-aos="fade-up">
+              <h5>New Products</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-apple-watch.jpg')"></div>
+                </div>
+                <div class="products-text">Apple Watch 4</div>
+                <div class="products-price">$890</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-orange-bogotta.jpg')"></div>
+                </div>
+                <div class="products-text">Orange Bogotta</div>
+                <div class="products-price">$94,509</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-sofa.jpg')"></div>
+                </div>
+                <div class="products-text">Sofa Ternyaman</div>
+                <div class="products-price">$1,409</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-bubuk-maketti.jpg')"></div>
+                </div>
+                <div class="products-text">Bubuk Maketti</div>
+                <div class="products-price">$225</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-tatakan-gelas.jpg')"></div>
+                </div>
+                <div class="products-text">Tatakan Gelas</div>
+                <div class="products-price">$45,184</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-mavic-kawe.jpg')"></div>
+                </div>
+                <div class="products-text">Mavic Kawe</div>
+                <div class="products-price">$503</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="700">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-black-edition-nike.jpg')"></div>
+                </div>
+                <div class="products-text">Black Edition Nike</div>
+                <div class="products-price">$70,482</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="800">
+              <a href="/details.html" class="component-products d-block">
+                <div class="products-thumbnail">
+                  <div class="products-image" style="background-image: url('./images/product-monkey-toys.jpg')"></div>
+                </div>
+                <div class="products-text">Monkey Toys</div>
+                <div class="products-price">$783</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <footer-bar></footer-bar>
+    </footer>
 
-  <script>
-    AOS.init();
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="../app.js"></script>
+    <script>
+      AOS.init();
   </script>
-</body>
+  </body>
 </html>

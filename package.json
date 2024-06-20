@@ -14,8 +14,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "express": "^4.19.2",
+    "open": "^10.1.0",
     "vue": "^3.4.27"
   },
   "devDependencies": {
