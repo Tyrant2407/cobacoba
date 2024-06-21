@@ -6,6 +6,9 @@ class HomePage extends HTMLElement {
 
   connectedCallback() {
     this.shadowRoot.innerHTML = `
+          <header>
+            <nav-bar></nav-bar>
+          </header>
           <carousel-section></carousel-section>
           <categories-section></categories-section>
       `;
