@@ -45,16 +45,16 @@ class NavBar extends HTMLElement {
                 <a href="#" data-page="home" class="nav-link">Home</a>
               </li>
               <li class="nav-item">
-                <a href="#" data-page="" class="nav-link">Categories</a>
+                <a href="#" data-page="categories" class="nav-link">Categories</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Rewards</a>
+                <a href="#" data-page="detail" class="nav-link">Rewards</a>
               </li>
               <li class="nav-item">
-                <a href="/register.html" class="nav-link">Sign Up</a>
+                <a href="#" data-page="signup" class="nav-link">Sign Up</a>
               </li>
               <li class="nav-item">
-                <a href="/login.html" class="btn btn-success nav-link">Sign In</a>
+                <a href="#" data-page="register" class="btn btn-success nav-link">Sign In</a>
               </li>
             </ul>
           </div>

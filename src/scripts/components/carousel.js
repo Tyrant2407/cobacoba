@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-underscore-dangle */
 class CarouselSection extends HTMLElement {
   constructor() {
@@ -66,17 +67,20 @@ class CarouselSection extends HTMLElement {
     const dots = this._shadowRoot.querySelectorAll('.dot');
 
     function showSlides() {
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
       }
+      // eslint-disable-next-line no-plusplus
       slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(' active', '');
       }
-      slides[slideIndex-1].style.display = 'block';
-      dots[slideIndex-1].className += ' active';
-      setTimeout(showSlides, 5000); // Change image every 2 seconds
+      slides[slideIndex - 1].style.display = 'block';
+      dots[slideIndex - 1].className += ' active';
+      setTimeout(showSlides, 5000);
     }
     showSlides();
 

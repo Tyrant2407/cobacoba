@@ -10,15 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
       content.innerHTML = '<home-page></home-page>';
     } else if (page === 'searchpage') {
       content.innerHTML = '<search-page></search-page>';
-    }
-  });
-
-  window.addEventListener('navigateCategories', (event) => {
-    const { page } = event.detail;
-    const content = document.getElementById('content');
-
-    if (page === 'gadgets') {
-      content.innerHTML = '<search-page></search-page>';
+    } else if (page === 'categories') {
+      content.innerHTML = '<categories-page></categories-page>';
+    } else if (page === 'detail') {
+      content.innerHTML = '<product-details></product-details>';
+    } else if (page === 'register') {
+      content.innerHTML = '<register-form></register-form>';
+    } else if (page === 'signup') {
+      content.innerHTML = '<signup-component></signup-component>';
     }
   });
 });

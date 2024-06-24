@@ -76,8 +76,8 @@ class SearchBar extends HTMLElement {
         .search-form .form-group input {
           display: block;
           width: 100%;
-          height: 40px;
-          padding: 0 10px;
+          height: 30px;
+          padding: 0 20px;
           border: 2px solid #40e0d0; /* turquoise border color */
           border-radius: 20px; /* rounded corners */
           font-size: 1rem;

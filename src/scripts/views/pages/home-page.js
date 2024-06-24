@@ -11,6 +11,7 @@ class HomePage extends HTMLElement {
           </header>
           <carousel-section></carousel-section>
           <categories-section></categories-section>
+          <store-new-products></store-new-products>
       `;
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-underscore-dangle */
 class CategoriesSection extends HTMLElement {
@@ -17,7 +18,6 @@ class CategoriesSection extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    // Call AOS initialization after rendering the content
     this._initializeAOS();
   }
 
@@ -28,8 +28,8 @@ class CategoriesSection extends HTMLElement {
         <section class="store-trend-categories">
           <div class="container">
             <div class="row">
-              <div class="col-12" data-aos="fade-up">
-                <h5>Trend Categories</h5>
+              <div style="margin-top: 20px;margin-bottom: 20px;margin-left:14px;color: grey" data-aos="fade-up">
+                <h3>Categories</h3>
               </div>
             </div>
             <div class="row">
@@ -139,8 +139,8 @@ class CategoriesSection extends HTMLElement {
   }
 
   _initializeAOS() {
-    if (window.AOS) {
-      window.AOS.refresh();
+    if (window.Aos) {
+      window.Aos.refresh();
     } else {
       console.error('AOS library is not loaded.');
     }

@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-underscore-dangle */
 class SearchPage extends HTMLElement {
   constructor() {
     super();
@@ -78,28 +80,47 @@ class SearchPage extends HTMLElement {
             <nav-bar></nav-bar>
           </header>
           <section>
-            <div class="breadcrumb">
-                <a href="#" class="breadcrumb-link">Home</a> / 
-                <span class="breadcrumb-current">Search Page</span>
-            </div>
-            
-            <div class="content">
-              <div class="header-text">
-                <h1>Temukan barang yang anda inginkan disini</h1>
+            <div class="container">
+              <div class="breadcrumb">
+                  <a href="#" class="breadcrumb-link" data-page="home">Home</a> / 
+                  <span class="breadcrumb-current">Search Page</span>
               </div>
-              <input id="query" type="text" placeholder="Cari nama barang, nama toko disini">
-              </input>
-              <categories-section></categories-section>
-              <div class="content__search">
-                <ul>
-                  <li><img src="../src/public/images/bag.png" alt="Logo"></li>
-                  <li><img src="../src/public/images/DANARI.png" alt="Logo"></li>
-                  <li><h3><i>“Kami pasti menemukan apa yang anda inginkan”</i></h3></li>
-                </ul>
+              
+              <div class="content">
+                <div class="header-text">
+                  <h1>Temukan barang yang anda inginkan disini</h1>
+                </div>
+                <input id="query" type="text" placeholder="Cari nama barang, nama toko disini">
+                </input>
+                <categories-section></categories-section>
+                <div class="content__search">
+                  <ul>
+                    <li><img src="../src/public/images/bag.png" alt="Logo"></li>
+                    <li><img src="../src/public/images/DANARI.png" alt="Logo"></li>
+                    <li><h3><i>“Kami pasti menemukan apa yang anda inginkan”</i></h3></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </section>
         `;
+
+    this.shadowRoot.querySelector('.container').addEventListener('click', this._navigateNav.bind(this));
+  }
+
+  _navigateNav(event) {
+    event.preventDefault();
+    const target = event.target.closest('.breadcrumb-link');
+    if (target) {
+      const page = target.getAttribute('data-page');
+      if (page) {
+        window.dispatchEvent(new CustomEvent('navigateNav', {
+          detail: {
+            page,
+          },
+        }));
+      }
+    }
   }
 }
 
