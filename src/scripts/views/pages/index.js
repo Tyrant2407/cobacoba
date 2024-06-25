@@ -5,3 +5,7 @@ import './categories-page.js';
 import './detail.js';
 import './register-page.js';
 import './signup.js';
+import './signup-success.js';
+import './dashboard.js';
+import './test.js';
+

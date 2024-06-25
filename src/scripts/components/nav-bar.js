@@ -1,15 +1,15 @@
+/* eslint-disable no-dupe-class-members */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-underscore-dangle */
 class NavBar extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({
-      mode: 'open',
-    });
+    this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
     this.render();
+    this._setupEventListeners();
   }
 
   _clearContent() {
@@ -33,7 +33,7 @@ class NavBar extends HTMLElement {
           <a href="#" data-page="home" class="nav-link" id="navbar-brand">
             <img src="../src/public/images/logo.png" alt="Logo">
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <button class="navbar-toggler" type="button" id="navbar-toggler">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -61,6 +61,15 @@ class NavBar extends HTMLElement {
         </div>
       </nav>
     `;
+  }
+
+  _setupEventListeners() {
+    const navbarToggler = this.shadowRoot.getElementById('navbar-toggler');
+    const navbarResponsive = this.shadowRoot.getElementById('navbarResponsive');
+
+    navbarToggler.addEventListener('click', () => {
+      navbarResponsive.classList.toggle('show');
+    });
 
     this.shadowRoot.querySelectorAll('.nav-link').forEach((link) => {
       link.addEventListener('click', this._navigateNav.bind(this));

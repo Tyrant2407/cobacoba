@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
       content.innerHTML = '<register-form></register-form>';
     } else if (page === 'signup') {
       content.innerHTML = '<signup-component></signup-component>';
+    } else if (page === 'signup-success') {
+      content.innerHTML = '<signup-success></signup-success>';
+    } else if (page === 'dashboard') {
+      content.innerHTML = '<dashboard-page></dashboard-page>';
+    } else if (page === 'test') {
+      content.innerHTML = '<custom-navbar></custom-navbar>';
     }
   });
 });

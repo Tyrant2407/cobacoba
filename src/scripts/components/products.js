@@ -18,9 +18,9 @@ class StoreAllProducts extends HTMLElement {
     customStylesLink.rel = 'stylesheet';
     customStylesLink.href = '../src/style/css/components/main.css';
 
-    const styles = document.createElement('style');
-    styles.textContent = `
-          `;
+    // const styles = document.createElement('style');
+    // styles.textContent = `
+    //       `;
 
     const container = document.createElement('div');
     container.innerHTML = `

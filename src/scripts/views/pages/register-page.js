@@ -60,13 +60,13 @@ class RegisterForm extends HTMLElement {
                           <a
                           href="/dashboard.html"
                           class="btn btn-success btn-block w-75 mt-4"
-                          data-page="home"
+                          data-page="dashboard"
                           >Sign In to My Account</a>
                           
                           <a
                           href="#"
                           class="btn btn-signup btn-block w-75 mt-2"
-                          data-page="signup"
+                          data-page="test"
                           >Sign Up</a
                           >
                       </form>

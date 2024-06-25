@@ -107,7 +107,7 @@ class SignUp extends HTMLElement {
                     </select>
                   </div>
 
-                  <a href="#" data-page="home" class="btn btn-success btn-block mt-4 link-page"
+                  <a href="#" data-page="signup-success" class="btn btn-success btn-block mt-4 link-page"
                     >Sign Up Now</a
                   >
                   <a href="#" data-page="register" class="btn btn-signup btn-block mt-2 link-page"
