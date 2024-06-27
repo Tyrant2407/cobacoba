@@ -1,5 +1,6 @@
-import '../src/scripts/components/index.js';
-import '../src/scripts/views/pages/index.js';
+import './src/scripts/components/index.js';
+import './src/scripts/views/pages/index.js';
+import './src/scripts/views/dashboard-pages/index.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('navigateNav', (event) => {
@@ -20,10 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
       content.innerHTML = '<signup-component></signup-component>';
     } else if (page === 'signup-success') {
       content.innerHTML = '<signup-success></signup-success>';
+
+    // Dashboard
     } else if (page === 'dashboard') {
       content.innerHTML = '<dashboard-page></dashboard-page>';
-    } else if (page === 'test') {
-      content.innerHTML = '<custom-navbar></custom-navbar>';
+    } else if (page === 'dashboard-settings') {
+      content.innerHTML = '<dashboard-settings></dashboard-settings>';
+    } else if (page === 'dashboard-products') {
+      content.innerHTML = '<dashboard-product></dashboard-product>';
+    } else if (page === 'dashboard-account') {
+      content.innerHTML = '<dashboard-account></dashboard-account>';
+    } else if (page === 'dashboard-transaction') {
+      content.innerHTML = '<dashboard-transaction></dashboard-transaction>';
     }
   });
 });

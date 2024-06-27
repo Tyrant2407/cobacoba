@@ -32,31 +32,36 @@ class Dashboard extends HTMLElement {
                         </div>
                         <div class="list-group list-group-flush">
                             <a
-                            href="/dashboard.html"
+                            href="#"
+                            data-page="dashboard"
                             class="list-group-item list-group-item-action active"
                             >Dashboard</a
                             >
                             <a
-                            href="/dashboard-products.html"
+                            href="#"
+                            data-page="dashboard-products"
                             class="list-group-item list-group-item-action"
                             >Products</a
                             >
                             <a
-                            href="/dashboard-transactions.html"
+                            href="#"
+                            data-page="dashboard-transaction"
                             class="list-group-item list-group-item-action"
                             >Transactions</a
                             >
                             <a
-                            href="/dashboard-products.html"
+                            href="#"
+                            data-page="dashboard-settings"
                             class="list-group-item list-group-item-action"
                             >Store Settings</a
                             >
                             <a
-                            href="/dashboard-account.html"
+                            href="#"
+                            data-page="dashboard-account"
                             class="list-group-item list-group-item-action"
                             >My Account</a
                             >
-                            <a href="/index.html" class="list-group-item list-group-item-action"
+                            <a data-page="home" class="list-group-item list-group-item-action"
                             >Sign Out</a
                             >
                         </div>
@@ -94,7 +99,7 @@ class Dashboard extends HTMLElement {
                                             data-toggle="dropdown"
                                             >
                                             <img
-                                                src="/images/icon-user.png"
+                                                src="../src/public/images/icon-user.png"
                                                 alt="profile"
                                                 class="rounded-circle mr-2 profile-picture"
                                             />
@@ -114,7 +119,7 @@ class Dashboard extends HTMLElement {
                                         <li class="nav-item">
                                             <a href="#" class="nav-link d-inline-block mt-2">
                                             <img
-                                                src="/images//icon-cart-filled.svg"
+                                                src="../src/public/images/icon-cart-filled.png"
                                                 alt="icon cart filled"
                                             />
                                             <div class="card-badge">3</div>
@@ -258,7 +263,7 @@ class Dashboard extends HTMLElement {
         
         this.shadowRoot.getElementById('menu-toggle').addEventListener('click', this._toggleSidebar.bind(this));
         this.shadowRoot.getElementById('navbar-toggler').addEventListener('click', this._toggleNavbar.bind(this));
-        this.shadowRoot.querySelectorAll('.nav-link').forEach(link => {
+        this.shadowRoot.querySelectorAll('.page-dashboard').forEach((link) => {
             link.addEventListener('click', this._handleClick.bind(this));
         });
     }
@@ -274,10 +279,10 @@ class Dashboard extends HTMLElement {
     }
 
     _handleClick(event) {
-        const target = event.target.closest('.list-group-item-action');
+        const target = event.target.closest('.list-group-item');
         if (target) {
             event.preventDefault();
-            const page = target.getAttribute('href');
+            const page = target.getAttribute('data-page');
             if (page) {
                 window.dispatchEvent(new CustomEvent('navigateNav', {
                     detail: {

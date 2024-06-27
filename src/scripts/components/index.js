@@ -7,3 +7,4 @@ import './categories.js';
 import './skip-link.js';
 import './products.js';
 import './product.js';
+import './dashboard-navbar.js';
