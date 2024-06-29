@@ -48,7 +48,7 @@ class NavBar extends HTMLElement {
                 <a href="#" data-page="categories" class="nav-link">Categories</a>
               </li>
               <li class="nav-item">
-                <a href="#" data-page="detail" class="nav-link">Rewards</a>
+                <a href="#" data-page="test" class="nav-link">Rewards</a>
               </li>
               <li class="nav-item">
                 <a href="#" data-page="signup" class="nav-link">Sign Up</a>

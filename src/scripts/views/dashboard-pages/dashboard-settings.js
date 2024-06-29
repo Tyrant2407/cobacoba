@@ -27,6 +27,7 @@ class DashboardSettings extends HTMLElement {
                                 src="../src/public/images/logo.png"
                                 class="my-4"
                                 alt="logo dashboard"
+                                style="width: 80px;height: 100px"
                             />
                         </div>
                         <div class="list-group list-group-flush">

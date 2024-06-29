@@ -8,3 +8,4 @@ import './skip-link.js';
 import './products.js';
 import './product.js';
 import './dashboard-navbar.js';
+import './CkeditorElement.js';

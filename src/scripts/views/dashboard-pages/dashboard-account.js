@@ -18,7 +18,7 @@ class DashboardAccount extends HTMLElement {
                 <link rel="stylesheet" href="../src/style/css/components/main.css" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
             </head>
-            <div class="page-dashboard">
+            <div class="page-dashboard" style="margin-top: -100px">
                 <div class="d-flex" id="wrapper" data-aos="fade-right">
                     <!-- Sidebar -->
                     <div class="border-right" id="sidebar-wrapper">
@@ -33,29 +33,35 @@ class DashboardAccount extends HTMLElement {
                         <a
                         href="/dashboard.html"
                         class="list-group-item list-group-item-action"
+                        data-page="dashboard"
                         >Dashboard</a
                         >
                         <a
                         href="/dashboard-products.html"
                         class="list-group-item list-group-item-action"
+                        data-page="dashboard-products"
                         >Products</a
                         >
                         <a
                         href="/dashboard-transactions.html"
                         class="list-group-item list-group-item-action"
+                        data-page="dashboard-transaction"
                         >Transactions</a
                         >
                         <a
                         href="/dashboard-settings.html"
                         class="list-group-item list-group-item-action"
+                        data-page="dashboard-settings"
                         >Store Settings</a
                         >
                         <a
                         href="/dashboard-account.html"
                         class="list-group-item list-group-item-action active"
+                        data-page="dashboard-account"
                         >My Account</a
                         >
                         <a href="/index.html" class="list-group-item list-group-item-action"
+                        data-page="home"
                         >Sign Out</a
                         >
                     </div>
@@ -79,6 +85,7 @@ class DashboardAccount extends HTMLElement {
                             type="button"
                             data-toggle="collapse"
                             data-target="#navbarSupportedContent"
+                            id="navbar-toggler"
                         >
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -286,7 +293,7 @@ class DashboardAccount extends HTMLElement {
         
         this.shadowRoot.getElementById('menu-toggle').addEventListener('click', this._toggleSidebar.bind(this));
         this.shadowRoot.getElementById('navbar-toggler').addEventListener('click', this._toggleNavbar.bind(this));
-        this.shadowRoot.querySelectorAll('.page-dashboard').forEach((link) => {
+        this.shadowRoot.querySelectorAll('.list-group-item').forEach((link) => {
             link.addEventListener('click', this._handleClick.bind(this));
         });
     }
@@ -302,17 +309,15 @@ class DashboardAccount extends HTMLElement {
     }
 
     _handleClick(event) {
-        const target = event.target.closest('.list-group-item');
-        if (target) {
+        const target = event.currentTarget;
+        const page = target.getAttribute('data-page');
+        if (page) {
             event.preventDefault();
-            const page = target.getAttribute('data-page');
-            if (page) {
-                window.dispatchEvent(new CustomEvent('navigateNav', {
-                    detail: {
-                        page,
-                    },
-                }));
-            }
+            window.dispatchEvent(new CustomEvent('navigateNav', {
+                detail: {
+                    page,
+                },
+            }));
         }
     }
 }

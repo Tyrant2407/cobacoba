@@ -6,3 +6,4 @@ import './detail.js';
 import './register-page.js';
 import './signup.js';
 import './signup-success.js';
+import './test.js';

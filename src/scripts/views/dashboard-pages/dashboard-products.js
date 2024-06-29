@@ -1,24 +1,15 @@
-/* eslint-disable indent */
-/* eslint-disable no-multiple-empty-lines */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable linebreak-style */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-undef */
-/* eslint-disable quotes */
-/* eslint-disable no-new */
-/* eslint-disable linebreak-style */
 /* eslint-disable no-underscore-dangle */
 class DashboardProducts extends HTMLElement {
-    constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `
             <head>
                 <meta charset="utf-8" />
                 <link rel="stylesheet" href="../src/style/css/components/main.css" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
             </head>
-            <div class="page-dashboard">
+            <div class="page-dashboard" style="margin-top: -100px">
                 <div class="d-flex" id="wrapper" data-aos="fade-right">
                     <!-- Sidebar -->
                     <div class="border-right" id="sidebar-wrapper">
@@ -145,8 +136,8 @@ class DashboardProducts extends HTMLElement {
                                 <div class="dashboard-content">
                                     <div class="row">
                                         <div class="col-12">
-                                            <a
-                                                href="/dashboard-products-create.html"
+                                            <a                       
+                                                data-page="product-create"
                                                 class="btn btn-success"
                                             >Add New Product</a>
                                         </div>
@@ -154,13 +145,15 @@ class DashboardProducts extends HTMLElement {
                                     <div class="row mt-4">
                                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                             <a
-                                                href="/dashboard-products-details.html"
+                                                href="#"
+                                                data-page="product-detail"
                                                 class="card card-dashboard-product d-block"
                                             >
                                                 <div class="card-body">
                                                     <img
                                                         src="/images/product-card-1.png"
                                                         alt="product card"
+                                                        data-page="product-detail"
                                                         class="w-100 mb-2"
                                                     />
                                                     <div class="product-title">Shirup Marzzan</div>
@@ -170,7 +163,8 @@ class DashboardProducts extends HTMLElement {
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                             <a
-                                                href="/dashboard-product-details.html"
+                                                href="#"
+                                                data-page="product-detail"
                                                 class="card card-dashboard-product d-block"
                                             >
                                                 <div class="card-body">
@@ -186,7 +180,8 @@ class DashboardProducts extends HTMLElement {
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                             <a
-                                                href="/dashboard-product-details.html"
+                                                href="#"
+                                                data-page="product-detail"
                                                 class="card card-dashboard-product d-block"
                                             >
                                                 <div class="card-body">
@@ -202,7 +197,8 @@ class DashboardProducts extends HTMLElement {
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                             <a
-                                                href="/dashboard-product-details.html"
+                                                href="#"
+                                                data-page="product-detail"
                                                 class="card card-dashboard-product d-block"
                                             >
                                                 <div class="card-body">
@@ -218,7 +214,8 @@ class DashboardProducts extends HTMLElement {
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                             <a
-                                                href="/dashboard-product-details.html"
+                                                href="#"
+                                                data-page="product-detail"
                                                 class="card card-dashboard-product d-block"
                                             >
                                                 <div class="card-body">
@@ -241,38 +238,74 @@ class DashboardProducts extends HTMLElement {
                 </div>
             </div>
         `;
-        
-        this.shadowRoot.getElementById('menu-toggle').addEventListener('click', this._toggleSidebar.bind(this));
-        this.shadowRoot.querySelector('.navbar-toggler').addEventListener('click', this._toggleNavbar.bind(this));
-        this.shadowRoot.querySelectorAll('.list-group-item').forEach((link) => {
-            link.addEventListener('click', this._handleClick.bind(this));
-        });
-    }
 
-    _toggleSidebar() {
-        const wrapper = this.shadowRoot.getElementById('wrapper');
-        wrapper.classList.toggle('toggled');
-    }    
+    this.shadowRoot.getElementById('menu-toggle').addEventListener('click', this._toggleSidebar.bind(this));
+    this.shadowRoot.querySelector('.navbar-toggler').addEventListener('click', this._toggleNavbar.bind(this));
+    this.shadowRoot.querySelectorAll('.list-group-item').forEach((link) => {
+      link.addEventListener('click', this._handleClick.bind(this));
+    });
+    this.shadowRoot.querySelectorAll('[data-page="product-detail"]').forEach((link) => {
+      link.addEventListener('click', this._handleDetailClick.bind(this));
+    });
+    this.shadowRoot.querySelectorAll('[data-page="product-create"]').forEach((link) => {
+      link.addEventListener('click', this._handleCreateClick.bind(this));
+    });
+  }
 
-    _toggleNavbar() {
-        const navbarResponsive = this.shadowRoot.getElementById('navbarSupportedContent');
-        navbarResponsive.classList.toggle('show');
-    }
+  _toggleSidebar() {
+    const wrapper = this.shadowRoot.getElementById('wrapper');
+    wrapper.classList.toggle('toggled');
+  }
 
-    _handleClick(event) {
-        const target = event.target.closest('.list-group-item');
-        if (target) {
-            event.preventDefault();
-            const page = target.getAttribute('data-page');
-            if (page) {
-                window.dispatchEvent(new CustomEvent('navigateNav', {
-                    detail: {
-                        page,
-                    },
-                }));
-            }
-        }
+  _toggleNavbar() {
+    const navbarResponsive = this.shadowRoot.getElementById('navbarSupportedContent');
+    navbarResponsive.classList.toggle('show');
+  }
+
+  _handleClick(event) {
+    const target = event.target.closest('.list-group-item');
+    if (target) {
+      event.preventDefault();
+      const page = target.getAttribute('data-page');
+      if (page) {
+        window.dispatchEvent(new CustomEvent('navigateNav', {
+          detail: {
+            page,
+          },
+        }));
+      }
     }
+  }
+
+  _handleDetailClick(event) {
+    const target = event.target.closest('.card');
+    if (target) {
+      event.preventDefault();
+      const page = target.getAttribute('data-page');
+      if (page) {
+        window.dispatchEvent(new CustomEvent('navigateNav', {
+          detail: {
+            page,
+          },
+        }));
+      }
+    }
+  }
+
+  _handleCreateClick(event) {
+    const target = event.target.closest('.btn');
+    if (target) {
+      event.preventDefault();
+      const page = target.getAttribute('data-page');
+      if (page) {
+        window.dispatchEvent(new CustomEvent('navigateNav', {
+          detail: {
+            page,
+          },
+        }));
+      }
+    }
+  }
 }
 
 customElements.define('dashboard-product', DashboardProducts);

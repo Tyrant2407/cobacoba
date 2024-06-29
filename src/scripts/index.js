@@ -1,6 +1,6 @@
-import './src/scripts/components/index.js';
-import './src/scripts/views/pages/index.js';
-import './src/scripts/views/dashboard-pages/index.js';
+import './components/index.js';
+import './views/pages/index.js';
+import './views/dashboard-pages/index.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('navigateNav', (event) => {
@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
       content.innerHTML = '<dashboard-account></dashboard-account>';
     } else if (page === 'dashboard-transaction') {
       content.innerHTML = '<dashboard-transaction></dashboard-transaction>';
+    } else if (page === 'detail-transaction') {
+      content.innerHTML = '<detail-transaction></detail-transaction>';
+    } else if (page === 'product-detail') {
+      content.innerHTML = '<dashboard-productdetail></dashboard-productdetail>';
+    } else if (page === 'product-create') {
+      content.innerHTML = '<dashboard-productcreate></dashboard-productcreate>';
+    } else if (page === 'test') {
+      content.innerHTML = '<test-page></test-page>';
     }
   });
 });
